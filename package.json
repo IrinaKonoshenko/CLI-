@@ -1,7 +1,14 @@
 {
-  "dependencies": {
-    "pkg": "^5.8.0"
+  "name": "nodejs-01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "start:dev": "nodemon index.js"
   },
+  "author": "",
+  "license": "ISC",
   "devDependencies": {
     "nodemon": "^2.0.20"
   }
