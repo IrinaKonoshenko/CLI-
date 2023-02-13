@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "pkg": "^5.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
