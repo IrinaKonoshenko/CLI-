@@ -13,8 +13,6 @@ program.parse(process.argv);
 
 const argv = program.opts();
 
-// const argv = require("yargs").argv;
-
 function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
     case "list":
