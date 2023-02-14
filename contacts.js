@@ -5,32 +5,40 @@ const Generator = require("id-generator");
 const contactsPath = path.join(__dirname, "./db/contacts.json");
 
 async function listContacts() {
-  const data = await fs.readFile(contactsPath, "utf-8");
-  return JSON.parse(data);
+  const data = await fs.readFile(contactsPath, "utf8");
+  const contacts = JSON.parse(data);
+  console.table(contacts);
+  return contacts;
 }
 
 async function getContactById(contactId) {
-  const data = await fs.readFile(contactsPath, "utf-8");
-  const contacts = JSON.parse(data);
-  return contacts.find((contact) => contact.id == id);
+  const data = await fs.readFile(contactsPath, "utf8");
+  const contacts = JSON.parse(data).find((contact) => contact.id == contactId);
+  console.table(contacts);
+  return contacts;
 }
 
 async function removeContact(contactId) {
-  const data = await fs.readFile(contactsPath, "utf-8");
+  const data = await fs.readFile(contactsPath, "utf8");
   const contacts = JSON.parse(data);
-  const filteredContacts = contacts.filter((contact) => contact.id != id);
-  fs.writeFile(contactsPath, JSON.stringify(filteredContacts));
+  const filteredContacts = contacts.filter(
+    (contact) => contact.id != contactId
+  );
+  fs.writeFile(contactsPath, JSON.stringify(filteredContacts), "utf8");
+  console.table(filteredContacts);
 }
 async function addContact(name, email, phone) {
-  const data = await fs.readFile(contactsPath, "utf-8");
+  const data = await fs.readFile(contactsPath, "utf8");
   const contacts = JSON.parse(data);
-  const createContacts = contacts.push({
+  const contact = {
     id: new Generator().newId(),
     name,
     email,
     phone,
-  });
-  fs.writeFile(contactsPath, JSON.stringify(createContacts));
+  };
+  contacts.push(contact);
+  fs.writeFile(contactsPath, JSON.stringify(contacts), "utf8");
+  console.table(contact);
 }
 
 module.exports = {

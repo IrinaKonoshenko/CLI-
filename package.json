@@ -13,6 +13,8 @@
     "nodemon": "^2.0.20"
   },
   "dependencies": {
-    "id-generator": "^1.1.0"
+    "commander": "^10.0.0",
+    "id-generator": "^1.1.0",
+    "yargs": "^17.6.2"
   }
 }
